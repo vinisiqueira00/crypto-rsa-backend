@@ -8,7 +8,7 @@ import { keysGenerationRouter } from "./keys-generation.routes"
 export const router = Router()
 
 router.use(cors({
-    origin: 'http://localhost:3000'
+    origin: '*'
 }))
 
 router.get('/', (_request: Request, response: Response) => {
