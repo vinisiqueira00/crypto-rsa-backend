@@ -82,7 +82,6 @@ web_modules/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -117,13 +116,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-
-
-
-
-
-
-
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
