@@ -10,7 +10,7 @@ export const router = Router()
 router.use(cors({ origin: '*' }))
 
 router.get('/', (_request: Request, response: Response) => {
-    return response.send('Express Typescript on Vercel')
+    return response.send('Express Typescript Application')
 })
 
 router.use("/encryption", encryptionRouter)
