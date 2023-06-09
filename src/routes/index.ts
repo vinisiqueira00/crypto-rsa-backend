@@ -7,9 +7,7 @@ import { keysGenerationRouter } from "./keys-generation.routes"
 
 export const router = Router()
 
-router.use(cors({
-    origin: 'http://localhost:3000'
-}))
+router.use(cors({ origin: '*' }))
 
 router.use("/encryption", encryptionRouter)
 router.use("/decryption", decryptionRouter)
