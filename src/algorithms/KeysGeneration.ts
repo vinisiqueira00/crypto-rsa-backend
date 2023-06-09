@@ -4,7 +4,7 @@ import { EuclideanAlgorithm } from '../library/EuclideanAlgorithm'
 import { ModularInverseArithmeticAlgorithm } from "../library/ModularInverseArithmeticAlgorithm"
 
 export class KeysGeneration {
-    private static BIT_LENGTH = 2048
+    private static BIT_LENGTH = 512
 
     private async generatePrimesNumbers() {
         return [await prime(KeysGeneration.BIT_LENGTH), await prime(KeysGeneration.BIT_LENGTH)]
