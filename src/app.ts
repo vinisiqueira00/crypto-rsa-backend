@@ -1,12 +1,12 @@
-import express, { urlencoded } from "express"
+import express, { urlencoded } from "express";
 
-import { router } from "./routes"
+import { router } from "./routes";
 
-const app = express()
+const app = express();
 
-app.use(urlencoded({ extended: true }))
-app.use(express.json())
+app.use(urlencoded({ extended: true }));
+app.use(express.json());
 
-app.use(router)
+app.use(router);
 
-export { app }
+export { app };

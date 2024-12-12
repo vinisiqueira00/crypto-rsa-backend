@@ -1,82 +1,82 @@
 interface IValue {
-    factor: bigint
-    multiplicity: number
+  factor: bigint;
+  multiplicity: number;
 }
 
 export class FactorizationAlgorithm {
-    private initialFactor = 2n
+  private initialFactor = 2n;
 
-    sqrt(value: bigint) {
-        if (value < 0n) {
-            throw 'square root of negative numbers is not supported'
-        }
-
-        if (value < 2n) {
-            return value
-        }
-
-        function newtonIteration(n: bigint, x0: bigint): bigint {
-            const x1 = ((n / x0) + x0) >> 1n
-
-            if (x0 === x1 || x0 === (x1 - 1n)) {
-                return x0
-            }
-
-            return newtonIteration(n, x1)
-        }
-
-        return newtonIteration(value, 1n)
+  sqrt(value: bigint) {
+    if (value < 0n) {
+      throw "square root of negative numbers is not supported";
     }
 
-    countRepetitions(list: Array<bigint>, number: bigint) {
-        let count = 0
-
-        list.forEach((value) => {
-            if (value === number) count++
-        })
-
-        return count
+    if (value < 2n) {
+      return value;
     }
 
-    calculate(number: bigint) {
-        try {
-            const values: Array<bigint> = []
+    function newtonIteration(n: bigint, x0: bigint): bigint {
+      const x1 = (n / x0 + x0) >> 1n;
 
-            let factor = this.initialFactor
-            let numberAnalyzed = number
+      if (x0 === x1 || x0 === x1 - 1n) {
+        return x0;
+      }
 
-            while (true) {
-                if (numberAnalyzed % factor === 0n) {
-                    values.push(factor)
+      return newtonIteration(n, x1);
+    }
 
-                    numberAnalyzed = numberAnalyzed / factor
-                    factor = this.initialFactor
+    return newtonIteration(value, 1n);
+  }
 
-                    continue
-                }
+  countRepetitions(list: Array<bigint>, number: bigint) {
+    let count = 0;
 
-                factor++
+    list.forEach((value) => {
+      if (value === number) count++;
+    });
 
-                if (factor > this.sqrt(numberAnalyzed)) {
-                    values.push(numberAnalyzed)
-                    break
-                }
-            }
+    return count;
+  }
 
-            const uniqueValues = values.filter(function (este, i) {
-                return values.indexOf(este) === i
-            })
+  calculate(number: bigint) {
+    try {
+      const values: Array<bigint> = [];
 
-            const newValues: Array<IValue> = uniqueValues.map((value) => {
-                return {
-                    factor: value,
-                    multiplicity: this.countRepetitions(values, value),
-                } as unknown as IValue
-            })
+      let factor = this.initialFactor;
+      let numberAnalyzed = number;
 
-            return newValues
-        } catch (error) {
-            throw new Error((error as Error).message)
+      while (true) {
+        if (numberAnalyzed % factor === 0n) {
+          values.push(factor);
+
+          numberAnalyzed = numberAnalyzed / factor;
+          factor = this.initialFactor;
+
+          continue;
         }
+
+        factor++;
+
+        if (factor > this.sqrt(numberAnalyzed)) {
+          values.push(numberAnalyzed);
+          break;
+        }
+      }
+
+      const uniqueValues = values.filter(function (este, i) {
+        return values.indexOf(este) === i;
+      });
+
+      const newValues: Array<IValue> = uniqueValues.map((value) => {
+        return {
+          factor: value,
+          multiplicity: this.countRepetitions(values, value),
+        } as unknown as IValue;
+      });
+
+      return newValues;
+    } catch (error) {
+      throw new Error((error as Error).message);
     }
+  }
 }
