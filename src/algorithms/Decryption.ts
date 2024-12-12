@@ -72,14 +72,6 @@ export class Decryption {
 
     const message = this.generateMessage(decodedBlocks);
 
-    // console.log("[Decryption] P: ", p)
-    // console.log("[Decryption] Q: ", q)
-    // console.log("[Decryption] N: ", n)
-    // console.log("[Decryption] D: ", d)
-    // console.log("[Decryption] blocos codificados: ", encodedBlocks)
-    // console.log("[Decryption] blocos: ", decodedBlocks)
-    // console.log("[Decryption] texto: ", message)
-
     return message;
   }
 }

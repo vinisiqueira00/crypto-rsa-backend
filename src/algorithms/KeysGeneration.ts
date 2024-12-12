@@ -70,13 +70,6 @@ export class KeysGeneration {
       ),
     };
 
-    // console.log("[Keys] P: ", p)
-    // console.log("[Keys] Q: ", q)
-    // console.log("[Keys] N: ", n)
-    // console.log("[Keys] E: ", e)
-    // console.log("[Keys] Phi: ", phi)
-    // console.log("[Keys] D: ", d)
-
     return {
       publicKey: keys.public,
       privateKey: keys.private,

@@ -58,13 +58,6 @@ export class Encryption {
 
     const encodedBlocks = this.encodeBlocks(blocks, n, e);
 
-    // console.log("[Encryption] texto: ", message)
-    // console.log("[Encryption] N: ", n)
-    // console.log("[Encryption] texto em dígitos: ", blocks.join(''))
-    // console.log("[Encryption] blocos: ", blocks)
-    // console.log("[Encryption] E: ", e)
-    // console.log("[Encryption] blocos codificados: ", encodedBlocks)
-
     return encodedBlocks;
   }
 }
