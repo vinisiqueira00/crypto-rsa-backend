@@ -9,7 +9,7 @@
     "start": "node dist/server.js"
   },
   "engines": {
-    "node": "18"
+    "node": "22"
   },
   "author": "",
   "license": "ISC",
